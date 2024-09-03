@@ -1,3 +1,5 @@
 ./fine_tuned_tinysolar_codealpaca
 ./wandb
 
+fine_tuned_tinysolar_codealpaca/
+wandb/
