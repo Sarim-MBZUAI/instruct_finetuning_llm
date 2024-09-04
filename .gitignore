@@ -1,5 +1,6 @@
 ./fine_tuned_tinysolar_codealpaca
 ./wandb
-
+code_feedback_lora_fine_tuned_model_output/
 fine_tuned_tinysolar_codealpaca/
 wandb/
+code_feedback_fine_tuned_model_output/
