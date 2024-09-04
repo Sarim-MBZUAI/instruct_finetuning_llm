@@ -2,50 +2,54 @@
 
 ## 🚀 Project Overview
 
-This project aims to fine-tune the TinySolar-248m-4k model on the CodeAlpaca-20k dataset using various advanced fine-tuning techniques. The goal is to create an efficient code generation model while exploring different fine-tuning methodologies.
+This project aims to fine-tune the TinySolar-248m-4k model on various datasets using advanced fine-tuning techniques. The goal is to create efficient models for different tasks while exploring various fine-tuning methodologies.
 
 ## 📂 Project Structure
 
 ```
-solar_finetuned_finally/
-│
-├── fine_tuned_tinysolar_codealpaca/  # Directory for fine-tuned model outputs
-├── finetune.py                       # Main fine-tuning script
-├── inference.ipynb                   # Notebook for testing the fine-tuned model
-└── wandb/                            # Weights & Biases logging directory
+.
+├── code_feedback_fine_tuned_model_output/       # Output directory for code feedback fine-tuned model
+├── code_feedback_lora_fine_tuned_model_output/  # Output directory for LoRA code feedback fine-tuned model
+├── codefeedback_lora_finetuning.py              # Script for LoRA fine-tuning on code feedback
+├── fine-tune-codefeedback.py                    # Script for fine-tuning on code feedback
+├── fine_tuned_tinysolar_codealpaca/             # Output directory for CodeAlpaca fine-tuned model
+├── finetune.py                                  # Main fine-tuning script
+├── inference.ipynb                              # Notebook for testing the fine-tuned models
+├── qlora_codefeedback.py                        # Script for QLoRA fine-tuning on code feedback
+├── quantized_lora_fine_tuned_model_output/      # Output directory for quantized LoRA fine-tuned model
+├── README.md                                    # This file
+└── wandb/                                       # Weights & Biases logging directory
 ```
 
 ## 🏗️ Current Status
 
-This project is currently in progress. We are experimenting with different fine-tuning techniques to optimize the performance of the TinySolar-248m-4k model on code generation tasks.
+This project is actively progressing. We are implementing and experimenting with different fine-tuning techniques to optimize the performance of the TinySolar-248m-4k model on various tasks, including code generation and code feedback.
 
-## 🧪 Planned Fine-tuning Techniques
+## 🧪 Implemented Fine-tuning Techniques
 
-We plan to implement and compare the following fine-tuning methods:
+We have implemented and are comparing the following fine-tuning methods:
 
-1. 🔧 LoRA (Low-Rank Adaptation)
-2. 🔬 QLoRA (Quantized Low-Rank Adaptation)
-3. 🧮 GLoRA (Grouped Low-Rank Adaptation)
-4. 🔄 DoRA (Double Low-Rank Adaptation)
-5. 📊 Linear Probing
+1. 🔧 Standard Fine-tuning
+2. 🔬 LoRA (Low-Rank Adaptation)
+3. 🧮 QLoRA (Quantized Low-Rank Adaptation)
 
-Each of these techniques will be implemented and evaluated to determine the most effective approach for fine-tuning the TinySolar model on the CodeAlpaca dataset.
+Each of these techniques has been implemented and is being evaluated to determine the most effective approach for fine-tuning the TinySolar model on different datasets.
 
 ## 🛠️ Usage
 
 ### Fine-tuning
 
-To run the fine-tuning process:
+To run the various fine-tuning processes:
 
 ```bash
-python finetune.py
+python finetune.py                      # For standard fine-tuning
+python codefeedback_lora_finetuning.py  # For LoRA fine-tuning on code feedback
+python qlora_codefeedback.py            # For QLoRA fine-tuning on code feedback
 ```
-
-Note: The fine-tuning script will be updated to incorporate the different techniques as they are implemented.
 
 ### Inference
 
-To test the fine-tuned model, use the `inference.ipynb` notebook. This notebook will be updated to work with the latest fine-tuned model versions.
+To test the fine-tuned models, use the `inference.ipynb` notebook. This notebook can be used to evaluate the performance of different fine-tuned model versions.
 
 ## 📈 Monitoring
 
@@ -53,14 +57,14 @@ We use Weights & Biases (wandb) for experiment tracking and visualization. Check
 
 ## 🔮 Future Work
 
-- Implement each of the planned fine-tuning techniques
-- Compare and analyze the performance of each technique
+- Implement additional fine-tuning techniques (e.g., GLoRA, DoRA)
+- Compare and analyze the performance of each technique across different tasks
 - Optimize hyperparameters for the best-performing methods
-- Develop a comprehensive evaluation framework for code generation tasks
+- Develop a comprehensive evaluation framework for various tasks (code generation, code feedback, etc.)
 
 ## 🤝 Contributing
 
-As this project is in progress, contributions are welcome. Please open an issue to discuss proposed changes or improvements before submitting a pull request.
+As this project is actively progressing, contributions are welcome. Please open an issue to discuss proposed changes or improvements before submitting a pull request.
 
 ## 📜 License
 
@@ -68,4 +72,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-🌟 This project is actively evolving. Check back for updates on our progress with different fine-tuning techniques!
+🌟 This project is actively evolving. Check back for updates on our progress with different fine-tuning techniques and their applications to various tasks!
