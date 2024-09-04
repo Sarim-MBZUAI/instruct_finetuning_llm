@@ -8,10 +8,22 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingA
 from torch.utils.data import Dataset
 import wandb
 from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_training
-from transformers.integrations import BitsAndBytesConfig
+
+import os
+import logging
+from typing import Dict
+import torch
+import datasets
+import transformers
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, BitsAndBytesConfig
+from torch.utils.data import Dataset
+import wandb
+from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_training
+
+# Rest of the imports and code remain the same...
 
 # Configuration
-model_name_or_path = "mistralai/Mistral-7B-v0.1"  # Example model, replace with your model
+model_name_or_path = "upstage/TinySolar-248m-4k"  # Example model, replace with your model
 dataset_name_or_path = "m-a-p/CodeFeedback-Filtered-Instruction"  # Replace with your dataset
 output_dir = "./quantized_lora_fine_tuned_model_output"
 wandb_project = "Quantized-Code-feedback-LoRA"
@@ -100,10 +112,9 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
 
     # Quantization configuration
-    compute_dtype = getattr(torch, bnb_4bit_compute_dtype)
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=load_in_4bit,
-        bnb_4bit_compute_dtype=compute_dtype,
+        bnb_4bit_compute_dtype=torch.bfloat16,
         bnb_4bit_quant_type=bnb_4bit_quant_type,
         bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
     )
